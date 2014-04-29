@@ -1,0 +1,12 @@
+= form_for @number_to_phrase do |f|
+  - if @number_to_phrase.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@number_to_phrase.errors.count, "error")} prohibited this number_to_phrase from being saved:"
+      %ul
+        - @number_to_phrase.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :number
+    = f.text_field :number
+  .actions
+    = f.submit 'Send'
